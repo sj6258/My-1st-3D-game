@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://elst0xn32iil"]
+[gd_scene load_steps=6 format=3 uid="uid://elst0xn32iil"]
 
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player/player.tscn" id="1_80nbo"]
 [ext_resource type="Material" uid="uid://dku3wpwcna4td" path="res://level/platform.tres" id="1_feb5d"]
 [ext_resource type="Material" uid="uid://br1th5vqu3e6a" path="res://level/bridge.tres" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://bd8eua4uiffrk" path="res://mob/mob.tscn" id="4_fc0e3"]
 
 [sub_resource type="Environment" id="Environment_80nbo"]
 background_mode = 1
-background_color = Color(0, 0.6281942, 0.5124814, 1)
+background_color = Color(0.51226336, 0.31068218, 0.0065918914, 1)
 ambient_light_color = Color(0.7292956, 0.7432512, 0.9832217, 1)
 tonemap_mode = 2
 tonemap_exposure = 0.95
@@ -105,6 +106,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6901846, 0, -0.555315)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.6548769, 0.51693326, -0.551286, -0.25333947, 0.5371006, 0.80457574, 0.712008, 0.6665606, -0.22077516, -1.4524269, 6.637694, 2.9239206)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80nbo")
+
+[node name="Mob" parent="." instance=ExtResource("4_fc0e3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7673, 2, -14)
+gravity_scale = 0.0
