@@ -16,4 +16,22 @@ shape = SubResource("SphereShape3D_6jlfs")
 [node name="bat_model" parent="." instance=ExtResource("2_pirjb")]
 unique_name_in_owner = true
 
+[node name="Skeleton3D" parent="bat_model/Armature" index="0"]
+bones/0/position = Vector3(0, 0.018701972, 0)
+bones/1/rotation = Quaternion(0.22057071, -0.026102722, -0.6009898, 0.76777506)
+bones/2/rotation = Quaternion(0.13316515, 0.061808903, 0.41623968, 0.8973245)
+bones/3/rotation = Quaternion(0.0329295, 0.06234148, 0.3517128, 0.9334492)
+bones/4/rotation = Quaternion(0.22057071, 0.026102722, 0.6009898, 0.76777506)
+bones/5/rotation = Quaternion(0.13316515, -0.061808903, -0.41623968, 0.8973245)
+bones/6/rotation = Quaternion(0.0329295, -0.06234148, -0.3517128, 0.9334492)
+bones/8/rotation = Quaternion(2.1333015e-08, 0.5957577, 0.80316424, 2.4878862e-08)
+bones/11/rotation = Quaternion(3.0549e-08, 0.5957577, 0.80316424, 3.4421547e-08)
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
 [editable path="bat_model"]

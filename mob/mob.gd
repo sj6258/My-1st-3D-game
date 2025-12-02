@@ -4,6 +4,7 @@ var health = 3
 var speed = randf_range(2.0, 4.0)
 
 @onready var bat_model: Node3D = %bat_model
+@onready var timer: Timer = %Timer
 
 @onready var player = get_node("/root/Game/Player")
 
@@ -26,3 +27,9 @@ func take_damage():
 		var direction = -1.0 * global_position.direction_to(player.global_position)
 		var random_upward_force = Vector3.UP * randf_range(1.0, 5.0)
 		apply_central_impulse(direction * 10 + random_upward_force)
+		timer.start()
+
+
+func _on_timer_timeout():
+	queue_free()
+	
