@@ -3,7 +3,7 @@ extends RigidBody3D
 signal died
 
 var health = 3 
-var speed = randf_range(2.0, 4.0)
+var speed = randf_range(3.0, 7.0)
 
 @onready var bat_model: Node3D = %bat_model
 @onready var timer: Timer = %Timer
@@ -34,10 +34,10 @@ func take_damage():
 		var random_upward_force = Vector3.UP * randf_range(1.0, 5.0)
 		apply_central_impulse(direction * 10 + random_upward_force)
 		timer.start()
-		died.emit()
 		ko.play()
 
 
 func _on_timer_timeout():
 	queue_free()
+	died.emit()
 	

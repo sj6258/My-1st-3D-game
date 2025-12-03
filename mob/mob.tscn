@@ -17,6 +17,7 @@ albedo_texture = ExtResource("3_jkfaf")
 roughness = 0.42727274
 
 [node name="Mob" type="RigidBody3D"]
+collision_layer = 2
 script = ExtResource("1_6jlfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -27,22 +28,22 @@ shape = SubResource("SphereShape3D_6jlfs")
 unique_name_in_owner = true
 
 [node name="Skeleton3D" parent="bat_model/Armature" index="0"]
-bones/0/position = Vector3(0, 0.023599999, 0)
-bones/1/rotation = Quaternion(0.18738188, -0.008876557, -0.6364845, 0.7481289)
-bones/2/rotation = Quaternion(0.17815024, 0.078589626, 0.39580545, 0.8974543)
-bones/3/rotation = Quaternion(0.13669011, 0.10440876, 0.3623382, 0.916038)
-bones/4/rotation = Quaternion(0.18738188, 0.008876557, 0.6364845, 0.7481289)
-bones/5/rotation = Quaternion(0.17815024, -0.078589626, -0.39580545, 0.8974543)
-bones/6/rotation = Quaternion(0.13669011, -0.10440876, -0.3623382, 0.916038)
-bones/8/rotation = Quaternion(3.9751548e-08, 0.6528042, 0.75752676, 2.4995863e-08)
-bones/11/rotation = Quaternion(2.4636577e-08, 0.6528042, 0.75752676, 3.3759314e-08)
+bones/0/position = Vector3(0, 0.019584823, 0)
+bones/1/rotation = Quaternion(0.22186029, -0.027575543, -0.60246825, 0.7661916)
+bones/2/rotation = Quaternion(0.13936415, 0.06478656, 0.41649362, 0.8960543)
+bones/3/rotation = Quaternion(0.041634936, 0.06563709, 0.35400265, 0.9320088)
+bones/4/rotation = Quaternion(0.22186029, 0.027575543, 0.60246825, 0.7661916)
+bones/5/rotation = Quaternion(0.13936415, -0.06478656, -0.41649362, 0.8960543)
+bones/6/rotation = Quaternion(0.041634936, -0.06563709, -0.35400265, 0.9320088)
+bones/8/rotation = Quaternion(1.913211e-08, 0.5995081, 0.8003687, 2.602799e-08)
+bones/11/rotation = Quaternion(3.1367303e-08, 0.5995081, 0.8003687, 3.1641846e-08)
 
 [node name="bat" parent="bat_model/Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_4wq73")
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 2.5
+wait_time = 2.0
 one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
