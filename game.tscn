@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://elst0xn32iil"]
+[gd_scene load_steps=8 format=3 uid="uid://elst0xn32iil"]
 
+[ext_resource type="Script" uid="uid://d2j1nggatxltk" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player/player.tscn" id="1_80nbo"]
 [ext_resource type="Material" uid="uid://dku3wpwcna4td" path="res://level/platform.tres" id="1_feb5d"]
 [ext_resource type="Material" uid="uid://br1th5vqu3e6a" path="res://level/bridge.tres" id="2_fc0e3"]
@@ -17,7 +18,13 @@ fog_sun_scatter = 0.08
 volumetric_fog_albedo = Color(0, 0, 0.21568628, 1)
 volumetric_fog_emission = Color(0.14306286, 0.062226474, 0.26107988, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
+font_size = 56
+font_color = Color(0, 0, 0.1764706, 1)
+outline_color = Color(0, 0, 0.32941177, 1)
+
 [node name="Game" type="Node3D"]
+script = ExtResource("1_7jktm")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9976573, 0)
@@ -113,3 +120,12 @@ environment = SubResource("Environment_80nbo")
 
 [node name="MobSpawner3D" parent="." instance=ExtResource("5_7jktm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.975025, 2.60163, 8.707936)
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_ryrav")
+
+[connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]

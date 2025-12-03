@@ -1,9 +1,7 @@
 extends CharacterBody3D
 
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -14,7 +12,6 @@ func _unhandled_input(event):
 		)
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 
 func _physics_process(delta):
 	const SPEED = 5.5
@@ -41,7 +38,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("shoot") and %Timer.is_stopped():
 		shoot_bullet()
 
-
 func shoot_bullet():
 	const BULLET_3D = preload("res://player/bullet_3d.tscn")
 	var new_bullet = BULLET_3D.instantiate()
@@ -50,3 +46,4 @@ func shoot_bullet():
 	new_bullet.global_transform = %Marker3D.global_transform
 	
 	%Timer.start()
+	%AudioStreamPlayer.play()
